@@ -12,7 +12,7 @@ export default function App() {
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Box textAlign="center" mb={3}>
         <Typography variant="h4" component="h1" gutterBottom>
-          🐱 Explorador de Raças de Gatos
+          🐱 Explorador de Gatos
         </Typography>
         <Typography variant="body1" color="text.secondary">
           Busque por raça — validação, mensagens de erro e cards com imagem.
