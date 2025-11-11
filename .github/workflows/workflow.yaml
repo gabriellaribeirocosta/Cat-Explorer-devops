@@ -1,9 +1,13 @@
 name: Continuous Integration
 
-on: pull_request
+on: 
+  push:
+    branches: [main]
+  pull_request:
 
 jobs: 
-    continuous-integration:
+    ci-cd:
+        name: Build and Deploy to Vercel
         runs-on: ubuntu-latest
 
         steps:
@@ -12,7 +16,7 @@ jobs:
             - name: using Node.js
               uses: actions/setup-node@v2
               with:
-                node-version: 22.
+                node-version: 22
 
             - name: Install dependencies
               run: npm install
@@ -21,5 +25,6 @@ jobs:
               run: npm run build
 
             - name: Deploy to Vercel
-              run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+              if: github.event_name == 'push'
+              run: npx vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }}
             
