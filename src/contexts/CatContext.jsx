@@ -72,7 +72,7 @@ export function CatProvider({ children }) {
         dispatch({ type: 'SEARCH_SUCCESS', payload: withImages, query })
       }
       } catch (err) {
-      console.error('Erro no fetch:', err)
+      console.error('Erro no fetch de raças:', err)
       dispatch({
         type: 'SEARCH_FAIL',
         error: err.message || 'Erro desconhecido.'
